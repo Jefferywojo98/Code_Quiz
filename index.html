@@ -9,20 +9,23 @@
   </head>
 
   <body>
-    <header>
-      <p id ="time">Time Clock</p>
-      <p id = "score"> Highscore</p>
+    <header class= "startScreen">
+     <h1>Code quiz 101</h1>
+     <p> To start click the button</p>
+    <div>
+      <button class ="startBtn"> Start</button>
+    </div>
     </header>
-    <article>
-      <h1 id = "question-numbers"> Code Quiz 101 </h1>
-      <p id = what-question> In this website I will ask you five question how well you know API and Javasript</p>
-    </article>
-    <main>
-        <button type="button" id ="start">Start Quiz</button>
-        <button type="button" id ="option-1">answer 1</button>
-        <button type="button" id ="option-2">answer 2</button>
-        <button type="button" id ="option-3">answer 3</button>
-        <button type="button" id ="option-4">answer 4</button>
+
+    <main class ="questionBtn">
+        <h4> timer: <span id="timerL"></span></h4>
+        <h2 class = "question"> question</h2>
+        <ul class = questionOpt>
+          <li id = "p1"></li><button id ="a1">A</button>
+          <li id = "p2"></li><button id ="a1">B</button>
+          <li id = "p3"></li><button id ="a1">C</button>
+          <li id = "p4"></li><button id ="a1">D</button>
+        </ul>
     </main>
   </body>
     <script src="/Code_Quiz/script.js"></script>
