@@ -9,9 +9,9 @@ document.readyMode
 
 const question = [
     {
-        title: "which question is true"
-        choices:[ "option1", "option2","option3", "option4"]
-        correctChoices: "option1"
+        "text": "which question is true"
+        "choices" :("option1", "option2","option3", "option4"
+        "correctChoices" : "option1"
     }
 ]
 
@@ -26,3 +26,10 @@ const answer2 = document.getElementById('a2')
 const answer3 = document.getElementById('a3')
 const answer4 = document.getElementById('a4')
 const time = document.querySelector("#timeL")
+
+function startTime() {
+    const timerInterval = setInterval( function (){
+        timeL--;
+        timer.textcontent = timeL + ("seconds");
+        console.log(timeL);
+    }    
