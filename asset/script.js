@@ -1,45 +1,34 @@
-$('#start').on('click', function(){
-    $('#supWrap').remove();
-    game.start();
-})
+const startBtn = $('#start')
+const questionScr =$('#questionScr')
+const questionTitle = $('#questionTitle')
+const option1 = $("#o1")
+const option2 = $("#o2")
+const option3 = $("#o3")
+const option4 = $("#o4")
+let index = 0
 
 let question =[{
-    Text:"what is the best number",
-    Options:["1","2","3","4"],
+    text:"what is the best number",
+    options:["1","2","3","4"],
     Correct:"1"
+}, {
+    text:"what is not the best number",
+    options:["1","2","3","4"],
+    Correct:"4"
 }]
 
-let game ={
-    correct:0,
-    wrong:0,
-    timer:90,
-
-    Contdown: function(){
-        game.counter--;
-        $('#timer').html(game.counter);
-        if(game.timer <0) {
-            console.log("times up")
-            game.over();
-        }
-    },
-    start: function(){
-        timer=setInterval(game.timer, 1000);
-        $('#subWrap').prepend('<h3>Time: <span id = "timer">90</span> seconds </h3>')
-        for(let i=0; i<text.length; i++){
-        $('text').append('<h3>'+text[i].text+'<h2>')
-            for(let j=0; j<text[i].options.length; j++){
-            $('subWrap').append("<h3><input type ='radio' name= 'text-"+i+"'value='</h3"+question[i].option[j]+"'>"+question[i].option[j])
-        }   }
-    }
-},
-done: function(){
-    $.each($('input[name="options- 5"]:checked'),
-function(){
-    if ($)(this).val()== options[5].correctAnswer) {
-        game.correct++;
-    } else {
-        game.wrong++;
-    }
-});
+function startGame(){
+    console.log("start")
+    $('#supWrap').remove();
+    loadNextQuestion()
     
 }
+
+function loadNextQuestion() {
+    questionTitle.text(question[index].text);
+    
+}
+
+startBtn.on('click', startGame)
+
+
