@@ -10,10 +10,10 @@ let index = 0
 let allScores = []
 
 
-let question =[{
+ var question =[{
     text:"what is the best number",
     options:["1","2","3","4"],
-    Ccrrect:"1"
+    correct:"1"
 }, {
     text:"what is not the best number",
     options:["1","2","3","4"],
@@ -32,10 +32,9 @@ function startGame(){
 
 function loadNextQuestion() {
     questionTitle.text(question[index].text);
-    i
+   option1
     index++;
 }
-
 startBtn.on('click', startGame)
 
 
