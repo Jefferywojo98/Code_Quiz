@@ -25,10 +25,10 @@ var questions = [{
 }
 ]
 
-var score = 0;
-var nextQuestion = 0;
-var timeRemain = 0;
-var timer;
+var score = 0
+var nextQuestion = 0
+var timeRemain = 0
+var timer
 
 function start() {
 

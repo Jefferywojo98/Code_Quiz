@@ -19,3 +19,6 @@ When you play the quiz, you will presented 5 question if you get it correct,
 you will get point, 
 if you get it wrong then lose 5 second on the time and no point.
 ```
+![Screenshot](asset\screencapture-file-C-Users-jeffe-Bootcamp-Code-Quiz-Code-Quiz-index-html-2021-08-21-15_41_40.png)
+![Deploy App](https://github.com/Jefferywojo98/Code_Quiz)
+![Deploy Demo](https://jefferywojo98.github.io/Code_Quiz/)
