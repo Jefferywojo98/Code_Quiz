@@ -70,7 +70,7 @@ function gameOver() {
     document.getElementById("quizList").innerHTML = quizScore;
     }
     function wrong() {
-        timeRemaining -=15;
+        timeRemaining -=5;
         next();
     }
     function correct() {
@@ -97,6 +97,6 @@ function gameOver() {
 
 
     document.getElementById("quizBody").innerHTML = quizContent;
-}
+
 
     
