@@ -83,7 +83,7 @@ function gameOver() {
         gameOver();
         return;
     }
-    var quizList = "<h2>"+question[nextQuestion].title + "h2"
+    var quizList = "<h2>"+question[nextQuestion].title + "</h2>"
     for (var buttonloop = 0; buttonloop < question[nextQuestion].choices.length; buttonloop++){
         var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>"; 
         buttonCode = buttonCode.replace("[CHOICE]", questions[nextQuestion].choices[buttonLoop]);
