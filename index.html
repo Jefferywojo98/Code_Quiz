@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Quiz 101</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-  </head>
 
-  <nav>
-    <div class="highscore">
-    <a onclick="viewScore" href="#"><h3>See the Highscore List</h3></a>
-    </div>
-    <div class="timeRemaining">
-      <h4>time: <span id="timeRemaining">0</span></h4>
-    </div>
-  </nav>
-  <body>
-    <div id="quiz"></div>
-    <div id="quizList">
-      <h1> Code Quiz 101!</h1>
-      <h2>click to start</h2>
-      <button onclick="start()">Start Quiz</button>
-      </div>
-    </div>
-  </body>
+<html>
+	<head>
+		<title>Code Quiz</title>
+		<meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css" />
+        <script src = "script.js" type="text/javascript"></script>
+	</head>
+	<body>
+    <nav>
+        <!-- view scores link on the top left of nav bar-->
+        <div class="left">
+          <a onclick="getScore()" href="#"><h4 >View Highscore</h4></a>
+        </div>
+        <!-- countdown timer on the top right of nav bar-->
+        <div class="right">
+          <h4>Time: <span id="timeLeft">0</span></h4>
+        </div>
+      </nav>
+    <main>
+      <div id="quiz">
+        <div id="quizBody">      
+          <h1>Code Quiz 101!</h1>
+          <h3>in this quiz you will get 5 question. if you get it correct you get point and if you get it wrong, then you lose time. good luck  </h3>
+          <button onclick="start()">Start!</button>
+        </div>
+      </main>
+    </body>
+</html>
