@@ -1,27 +1,27 @@
 var questions = [{
-    title: "what is my favorite number?",
-    choices: ["1", "2", "3", "4"],
-    answer: "4"
+    title: "Inside which HTML element do we put the JavaScript?",
+    choices: ["js", "script", "javascript", "4java"],
+    answer: "script"
 },
 {
-    title: "what is not my favorite number?",
-    choices: ["1", "2", "3", "4"],
-    answer: "2"
+    title: "Which event occurs when the user clicks on an HTML element?",
+    choices: ["onchange", "onmouseclick", "onclick", "onmouseover"],
+    answer: "onclick"
 },
 {
-    title: "what 2+2?",
-    choices: ["fish", "5", "4", "2"],
-    answer: "4"
+    title: "Which operator is used to assign a value to a variable??",
+    choices: ["+", "=", "*", "/"],
+    answer: "="
 },
 {
-    title: "3x3?",
-    choices: ["1", "3", "6", "9"],
-    answer: "9"
+    title: "Which of the following function of String object creates an HTML anchor that is used as a hypertext target? ",
+    choices: ["wink()", "bling()", "link()", "anchor()"],
+    answer: "anchor()"
 },
 {
-    title: "what 4x4?",
-    choices: ["[2", "4", "8", "16"],
-    answer: "concat( )"
+    title: "Which of the following function of Array object sorts the elements of an array??",
+    choices: ["toSource()", "sort()", "toString()", "unshift()"],
+    answer: "sort()"
 }
 ]
 
