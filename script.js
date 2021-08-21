@@ -1,62 +1,62 @@
 var questions = [{
     title: "Inside which HTML element do we put the JavaScript?",
-    choices: ["js", "script", "javascript", "4java"],
+    options: ["js", "script", "javascript", "4java"],
     answer: "script"
 },
 {
     title: "Which event occurs when the user clicks on an HTML element?",
-    choices: ["onchange", "onmouseclick", "onclick", "onmouseover"],
+    options: ["onchange", "onmouseclick", "onclick", "onmouseover"],
     answer: "onclick"
 },
 {
     title: "Which operator is used to assign a value to a variable??",
-    choices: ["+", "=", "*", "/"],
+    options: ["+", "=", "*", "/"],
     answer: "="
 },
 {
     title: "Which of the following function of String object creates an HTML anchor that is used as a hypertext target? ",
-    choices: ["wink()", "bling()", "link()", "anchor()"],
+    options: ["wink()", "bling()", "link()", "anchor()"],
     answer: "anchor()"
 },
 {
     title: "Which of the following function of Array object sorts the elements of an array??",
-    choices: ["toSource()", "sort()", "toString()", "unshift()"],
+    options: ["toSource()", "sort()", "toString()", "unshift()"],
     answer: "sort()"
 }
 ]
 
 var score = 0;
-var currentQuestion = -1;
-var timeLeft = 0;
+var nextQuestion = 0;
+var timeRemain = 0;
 var timer;
 
 function start() {
 
-timeLeft = 75;
-document.getElementById("timeLeft").innerHTML = timeLeft;
+timeRemain = 30;
+document.getElementById("timeLeft").innerHTML = timeRemain;
 
 timer = setInterval(function() {
-    timeLeft--;
-    document.getElementById("timeLeft").innerHTML = timeLeft;
+    timeRemain--;
+    document.getElementById("timeLeft").innerHTML = timeRemain;
     
-    if (timeLeft <= 0) {
+    if (timeRemain <= 0) {
         clearInterval(timer);
-        endGame(); 
+        gameOver(); 
     }
 }, 1000);
 next();
 }
 
 
-function endGame() {
+function gameOver() {
 clearInterval(timer);
 
-var quizContent = `
-<h2>Game Over!</h2>
+var quizList = 
+`<h2>Game Over!</h2>
 <input type="text" id="name" placeholder="First name"> 
 <button onclick="setScore()">Set score!</button>`;
 
-document.getElementById("quizBody").innerHTML = quizContent;
+document.getElementById("quizList").innerHTML = quizList;
 }
 
 
@@ -68,45 +68,43 @@ getScore();
 
 
 function getScore() {
-var quizContent = `
-<h2>` + localStorage.getItem("highscoreName") + `highscore:</h2>
+var quizList = 
+`<h2>` + localStorage.getItem("highscoreName") + `highscore:</h2>
 <h1>` + localStorage.getItem("highscore") + `</h1><br> 
 
-<button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>
+<button onclick="clearScore()">Clear!</button><button onclick="resetQuiz()">Play Again!</button>`;
 
-`;
-
-document.getElementById("quizBody").innerHTML = quizContent;
+document.getElementById("quizList").innerHTML = quizList;
 }
 
 function clearScore() {
 localStorage.setItem("highscore", "");
 localStorage.setItem("highscoreName",  "");
 
-resetGame();
+resetQuiz();
 }
 
  
-function resetGame() {
+function resetQuiz() {
 clearInterval(timer);
 score = 0;
-currentQuestion = -1;
-timeLeft = 0;
-timer = null;
+nextQuestion = 0;
+timeRemain = 0;
+timer = NaN;
 
-document.getElementById("timeLeft").innerHTML = timeLeft;
+document.getElementById("timeLeft").innerHTML = timeRemain;
 
-var quizContent = 
+var quizList = 
 `<h1>Code Quiz 101!</h1>
 <h3>in this quiz you will get 5 question. if you get it correct you get point and if you get it wrong, then you lose time. good luck  </h3>
 <button onclick="start()">Start!</button>`;
 
-document.getElementById("quizBody").innerHTML = quizContent;
+document.getElementById("quizList").innerHTML = quizList;
 }
 
 
-function incorrect() {
-timeLeft -= 5; 
+function wrong() {
+timeRemain -= 5; 
 next();
 }
 
@@ -117,26 +115,26 @@ next();
 }
  
 function next() {
-currentQuestion++;
+nextQuestion++;
 
-if (currentQuestion > questions.length -1) {
-    endGame();
+if (nextQuestion > questions.length -1) {
+    gameOver();
     return;
 }
 
-var quizContent = "<h2>" + questions[currentQuestion].title + "</h2>"
+var quizList = "<h2>" + questions[nextQuestion] + "</h2>"
 
-for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
-    var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>"; 
-    buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
-    if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
+for (var buttonLoop = 0; buttonLoop < questions[nextQuestion].options.length; buttonLoop++) {
+    var buttonCode = "<button onclick=\"[ANS]\">[OPTION]</button>"; 
+    buttonCode = buttonCode.replace("[OPTION]", questions[nextQuestion].options[buttonLoop]);
+    if (questions[nextQuestion].options[buttonLoop] == questions[nextQuestion].answer) {
         buttonCode = buttonCode.replace("[ANS]", "correct()");
     } else {
-        buttonCode = buttonCode.replace("[ANS]", "incorrect()");
+        buttonCode = buttonCode.replace("[ANS]", "wrong()");
     }
-    quizContent += buttonCode
+    quizList += buttonCode
 }
 
 
-document.getElementById("quizBody").innerHTML = quizContent;
+document.getElementById("quizList").innerHTML = quizList;
 }
